@@ -2,7 +2,7 @@ package org.jrebirth.demo.devcockpit.ui;
 
 import org.jrebirth.af.api.wave.Wave;
 import org.jrebirth.af.core.ui.DefaultModel;
-import org.jrebirth.demo.devcockpit.model.HudsonModelHudson;
+import org.jrebirth.demo.devcockpit.model.Hudson;
 import org.jrebirth.demo.devcockpit.service.LoadService;
 
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ public final class MainModel extends DefaultModel<MainModel, MainView> {
     /** The class logger. */
     private static final Logger LOGGER = LoggerFactory.getLogger(MainModel.class);
 
-    private HudsonModelHudson hudson;
+    private Hudson hudson;
 
     /**
      * {@inheritDoc}
@@ -53,7 +53,7 @@ public final class MainModel extends DefaultModel<MainModel, MainView> {
         // Put the code to manage model object binding (if any)
     }
 
-    public void mainLoader(HudsonModelHudson hudson, Wave wave) {
+    public void mainLoader(Hudson hudson, Wave wave) {
         this.hudson = hudson;
         getView().fillView();
     }
@@ -61,7 +61,7 @@ public final class MainModel extends DefaultModel<MainModel, MainView> {
     /**
      * @return Returns the hudson.
      */
-    HudsonModelHudson getHudson() {
+    Hudson getHudson() {
         return hudson;
     }
 

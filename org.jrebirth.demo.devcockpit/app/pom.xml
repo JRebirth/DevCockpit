@@ -34,7 +34,7 @@
 
 		<jnlpFilename>devcockpit.jnlp</jnlpFilename>
 		<preloaderClass>org.jrebirth.af.preloader.JRebirthPreloader</preloaderClass>
-		<appClass>org.jrebirth.demo.devcockpit.SampleApplication</appClass>
+		<appClass>org.jrebirth.demo.devcockpit.DevCockpitApplication</appClass>
 
 		<appletWidth>1024</appletWidth>
 		<appletHeight>768</appletHeight>

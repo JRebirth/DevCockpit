@@ -12,7 +12,7 @@ import org.jrebirth.af.api.wave.Wave;
 import org.jrebirth.af.core.service.DefaultService;
 import org.jrebirth.af.processor.annotation.Register;
 import org.jrebirth.af.processor.annotation.WarmUp;
-import org.jrebirth.demo.devcockpit.model.HudsonModelHudson;
+import org.jrebirth.demo.devcockpit.model.Hudson;
 import org.jrebirth.demo.devcockpit.model.ObjectFactory;
 
 import org.apache.http.HttpEntity;
@@ -51,11 +51,11 @@ public final class LoadServiceImpl extends DefaultService implements LoadService
      * @param wave the source wave
      */
     @Override
-    public HudsonModelHudson loadMain(final Wave wave) {
+    public Hudson loadMain(final Wave wave) {
 
         LOGGER.trace("Do Something.");
 
-        HudsonModelHudson hudson = null;
+        Hudson hudson = null;
 
         final CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
@@ -94,7 +94,7 @@ public final class LoadServiceImpl extends DefaultService implements LoadService
             final Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement ele = (JAXBElement) jaxbUnmarshaller.unmarshal(new StringReader(apiOutput));
 
-            hudson = (HudsonModelHudson) ele.getValue();
+            hudson = (Hudson) ele.getValue();
 
         } catch (final IOException | JAXBException e) {
             // TODO Auto-generated catch block

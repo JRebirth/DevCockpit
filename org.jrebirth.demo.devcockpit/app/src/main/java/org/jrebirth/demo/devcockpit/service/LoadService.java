@@ -7,7 +7,7 @@ import org.jrebirth.af.api.wave.contract.WaveType;
 import org.jrebirth.af.core.wave.Builders;
 import org.jrebirth.af.core.wave.WaveItemBase;
 import org.jrebirth.af.processor.annotation.RegistrationPoint;
-import org.jrebirth.demo.devcockpit.model.HudsonModelHudson;
+import org.jrebirth.demo.devcockpit.model.Hudson;
 
 /**
  * The class <strong>SampleService</strong>.
@@ -17,7 +17,7 @@ import org.jrebirth.demo.devcockpit.model.HudsonModelHudson;
 @RegistrationPoint(exclusive = true)
 public interface LoadService extends Service {
 
-    WaveItem<HudsonModelHudson> HUDSON = new WaveItemBase<HudsonModelHudson>() {
+    WaveItem<Hudson> HUDSON = new WaveItemBase<Hudson>() {
     };
 
     WaveType DO_LOAD_MAIN = Builders.waveType("LOAD_MAIN").returnAction("MAIN_LOADED");
@@ -30,6 +30,6 @@ public interface LoadService extends Service {
      *
      * @param wave the source wave
      */
-    HudsonModelHudson loadMain(final Wave wave);
+    Hudson loadMain(final Wave wave);
 
 }
