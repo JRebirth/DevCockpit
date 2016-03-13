@@ -20,16 +20,17 @@ public interface LoadService extends Service {
     WaveItem<Hudson> HUDSON = new WaveItemBase<Hudson>() {
     };
 
-    WaveType DO_LOAD_MAIN = Builders.waveType("LOAD_MAIN").returnAction("MAIN_LOADED");
-
     /** Wave type to return when something was done. */
-    WaveType RE_MAIN_LOADED = Builders.waveType("MAIN_LOADED").returnItem(HUDSON);
+    WaveType RE_MAIN_LOADED = Builders.waveType("MAIN_LOADED").items(HUDSON);
+
+    WaveType DO_LOAD_MAIN = Builders.waveType("LOAD_MAIN")
+                                    .returnWaveType(RE_MAIN_LOADED);
 
     /**
      * Do something.
      *
      * @param wave the source wave
      */
-    Hudson loadMain(final Wave wave);
+    Hudson doLoadMain(final Wave wave);
 
 }

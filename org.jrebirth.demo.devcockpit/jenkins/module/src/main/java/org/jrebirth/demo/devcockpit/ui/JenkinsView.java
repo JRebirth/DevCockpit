@@ -1,6 +1,8 @@
 package org.jrebirth.demo.devcockpit.ui;
 
 import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.core.ui.AbstractView;
@@ -13,10 +15,14 @@ import org.slf4j.LoggerFactory;
  * 
  * @author
  */
-public final class MainView extends AbstractView<MainModel, BorderPane, MainController> {
+public final class JenkinsView extends AbstractView<JenkinsModel, BorderPane, JenkinsController> {
 
     /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(MainView.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsView.class);
+
+    private WebView descLabel;
+
+    private WebEngine webEngine;
 
     /**
      * Default Constructor.
@@ -25,7 +31,7 @@ public final class MainView extends AbstractView<MainModel, BorderPane, MainCont
      * 
      * @throws CoreException if build fails
      */
-    public MainView(final MainModel model) throws CoreException {
+    public JenkinsView(final JenkinsModel model) throws CoreException {
         super(model);
     }
 
@@ -34,6 +40,12 @@ public final class MainView extends AbstractView<MainModel, BorderPane, MainCont
      */
     @Override
     protected void initView() {
+
+        descLabel = new WebView();
+        webEngine = descLabel.getEngine();
+
+        webEngine.loadContent("trying to connect to Jenkins instance : ci.jrebirth.org");
+        getRootNode().setTop(descLabel);
 
     }
 
@@ -62,6 +74,19 @@ public final class MainView extends AbstractView<MainModel, BorderPane, MainCont
     public void hide() {
         LOGGER.debug("Hide the Sample View");
         // Custom code to process when the view is hidden
+    }
+
+    public void fillView() {
+        final StringBuilder sb = new StringBuilder();
+
+        sb.append(getModel().getHudson().getDescription());
+
+        for (final Object job : getModel().getHudson().getJob()) {
+            // sb.append("\\r\\n").append(((HudsonModelJob) job).getDisplayName());
+        }
+
+        webEngine.loadContent(sb.toString());
+
     }
 
 }

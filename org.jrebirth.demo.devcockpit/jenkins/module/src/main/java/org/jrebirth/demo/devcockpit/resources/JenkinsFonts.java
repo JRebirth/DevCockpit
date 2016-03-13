@@ -10,7 +10,7 @@ import org.jrebirth.af.core.resource.font.RealFont;
  * 
  * @author
  */
-public interface DCFonts {
+public interface JenkinsFonts {
 
     /** The splash font. */
     FontItem SPLASH = create(new RealFont(JenkinsFontNames.DINk, 24));

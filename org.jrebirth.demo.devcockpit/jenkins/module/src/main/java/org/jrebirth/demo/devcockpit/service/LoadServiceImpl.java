@@ -51,7 +51,7 @@ public final class LoadServiceImpl extends DefaultService implements LoadService
      * @param wave the source wave
      */
     @Override
-    public Hudson loadMain(final Wave wave) {
+    public Hudson doLoadMain(final Wave wave) {
 
         LOGGER.trace("Do Something.");
 
