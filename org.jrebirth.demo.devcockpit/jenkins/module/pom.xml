@@ -139,7 +139,13 @@
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>core</artifactId>
-			<version>8.0.5</version>
+			<version>${jrebirth.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jrebirth.af</groupId>
+			<artifactId>processor</artifactId>
+			<version>${jrebirth.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -154,18 +160,6 @@
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.jrebirth.af</groupId>
-			<artifactId>modular</artifactId>
-			<version>8.0.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jrebirth.af</groupId>
-			<artifactId>processor</artifactId>
-			<version>8.0.5</version>
-			<scope>provided</scope>
-		</dependency>
 
 	</dependencies>
 

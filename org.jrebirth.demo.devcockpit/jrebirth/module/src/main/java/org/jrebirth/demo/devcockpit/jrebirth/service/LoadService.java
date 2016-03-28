@@ -1,4 +1,4 @@
-package org.jrebirth.demo.devcockpit.service;
+package org.jrebirth.demo.devcockpit.jrebirth.service;
 
 import org.jrebirth.af.api.module.RegistrationPoint;
 import org.jrebirth.af.api.service.Service;

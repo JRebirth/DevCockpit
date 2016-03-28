@@ -19,6 +19,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<jrebirth.version>8.1.0-SNAPSHOT</jrebirth.version>
+
 		<storepass>storepass</storepass>
 		<storetype>JKS</storetype>
 		<keyalias>keyalias</keyalias>
@@ -62,13 +64,13 @@
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>core</artifactId>
-			<version>8.0.5</version>
+			<version>${jrebirth.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>preloader</artifactId>
-			<version>8.0.5</version>
+			<version>${jrebirth.version}</version>
 		</dependency>
 	</dependencies>
 

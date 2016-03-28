@@ -11,4 +11,8 @@
 	<groupId>org.jrebirth.demo.devcockpit</groupId>
 	<artifactId>jrebirth</artifactId>
 	<packaging>pom</packaging>
+
+	<modules>
+		<module>module</module>
+	</modules>
 </project>

@@ -11,10 +11,10 @@ import org.slf4j.LoggerFactory;
  * 
  * @author
  */
-public final class JenkinsController extends AbstractController<JenkinsModel, JenkinsView> {
+public final class JenkinsPluginController extends AbstractController<JenkinsPluginModel, JenkinsPluginView> {
 
     /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsPluginController.class);
 
     /**
      * Default Constructor.
@@ -23,7 +23,7 @@ public final class JenkinsController extends AbstractController<JenkinsModel, Je
      * 
      * @throws CoreException if an error occurred while creating event handlers
      */
-    public JenkinsController(final JenkinsView view) throws CoreException {
+    public JenkinsPluginController(final JenkinsPluginView view) throws CoreException {
         super(view);
     }
 

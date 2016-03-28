@@ -15,10 +15,10 @@ import org.slf4j.LoggerFactory;
  * 
  * @author
  */
-public final class JenkinsView extends AbstractView<JenkinsModel, BorderPane, JenkinsController> {
+public final class JenkinsPluginView extends AbstractView<JenkinsPluginModel, BorderPane, JenkinsPluginController> {
 
     /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsView.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsPluginView.class);
 
     private WebView descLabel;
 
@@ -31,7 +31,7 @@ public final class JenkinsView extends AbstractView<JenkinsModel, BorderPane, Je
      * 
      * @throws CoreException if build fails
      */
-    public JenkinsView(final JenkinsModel model) throws CoreException {
+    public JenkinsPluginView(final JenkinsPluginModel model) throws CoreException {
         super(model);
     }
 

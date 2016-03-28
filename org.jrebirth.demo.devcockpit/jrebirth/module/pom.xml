@@ -2,15 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.jrebirth.demo.devcockpit</groupId>
-	<artifactId>app</artifactId>
-	<packaging>jar</packaging>
-
 	<parent>
-		<groupId>org.jrebirth.demo</groupId>
-		<artifactId>devcockpit</artifactId>
+		<groupId>org.jrebirth.demo.devcockpit</groupId>
+		<artifactId>jrebirth</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+
+	<groupId>org.jrebirth.demo.devcockpit.jrebirth</groupId>
+	<artifactId>module</artifactId>
+	<packaging>jar</packaging>
+
 
 	<name>Sample Application</name>
 	<url>http://www.sample.org</url>
@@ -115,107 +116,6 @@
 						</archive>
 					</configuration>
 				</plugin>
-
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>webstart-maven-plugin</artifactId>
-					<version>1.0-beta-6</version>
-
-					<dependencies>
-						<dependency>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>keytool-api-1.7</artifactId>
-							<version>1.4</version>
-						</dependency>
-						<dependency>
-							<groupId>org.codehaus.mojo</groupId>
-							<artifactId>webstart-pack200-impl</artifactId>
-							<version>1.0-beta-6</version>
-						</dependency>
-					</dependencies>
-
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>jnlp-inline</goal>
-							</goals>
-						</execution>
-					</executions>
-
-					<configuration>
-
-						<filenameMapping>full</filenameMapping>
-
-						<updateManifestEntries>
-							<Application-Name>${project.name}</Application-Name>
-							<Trusted-Library>true</Trusted-Library>
-							<Permissions>${permissions}</Permissions>
-							<Codebase>${codebase}</Codebase>
-							<Trusted-Only>true</Trusted-Only>
-						</updateManifestEntries>
-
-
-						<jnlpFiles>${jrebirth.jnlp.filename}</jnlpFiles>
-						<excludeTransitive>false</excludeTransitive>
-
-						<libPath>lib</libPath>
-						<codebase>${codebase}</codebase>
-
-						<jnlp>
-							<outputFile>${jnlpFilename}</outputFile>
-							<mainClass>${appClass}</mainClass>
-							<offlineAllowed>true</offlineAllowed>
-							<allPermissions>true</allPermissions>
-						</jnlp>
-
-						<sign>
-							<keystore>${keystore}</keystore>
-							<keypass>${keypass}</keypass>
-							<storepass>${storepass}</storepass>
-							<storetype>${storetype}</storetype>
-
-							<alias>${keyalias}</alias>
-
-							<validity>360</validity>
-							<dnameCn>JRebirth Self-signed Certificate</dnameCn>
-							<dnameOu>JRebirth OSS</dnameOu>
-							<dnameO>JRebirth</dnameO>
-							<dnameL>Toulouse</dnameL>
-							<dnameSt>Haute-Garonne</dnameSt>
-							<dnameC>FR</dnameC>
-							<verify>true</verify>
-
-							<keystoreConfig>
-								<delete>${deletekeystore}</delete>
-								<gen>${genkeystore}</gen>
-							</keystoreConfig>
-
-						</sign>
-
-						<unsignAlreadySignedJars>true</unsignAlreadySignedJars>
-
-						<pack200>
-							<enabled>true</enabled>
-						</pack200>
-						<gzip>true</gzip>
-
-						<outputJarVersions>false</outputJarVersions>
-
-						<install>false</install>
-						<verbose>true</verbose>
-					</configuration>
-
-				</plugin>
-
-
-				<!-- Project Quality -->
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>sonar-maven-plugin</artifactId>
-					<version>2.5</version>
-				</plugin>
-
 			</plugins>
 		</pluginManagement>
 
@@ -241,19 +141,6 @@
 			<artifactId>core</artifactId>
 			<version>${jrebirth.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.jrebirth.af</groupId>
-			<artifactId>preloader</artifactId>
-			<version>${jrebirth.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jrebirth.af</groupId>
-			<artifactId>component</artifactId>
-			<version>${jrebirth.version}</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>processor</artifactId>
@@ -262,16 +149,17 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.jrebirth.demo.devcockpit.jenkins</groupId>
-			<artifactId>module</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.1</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.jrebirth.demo.devcockpit.jrebirth</groupId>
-			<artifactId>module</artifactId>
+			<groupId>org.jrebirth.demo.devcockpit.jenkins</groupId>
+			<artifactId>model</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
+
 
 	</dependencies>
 

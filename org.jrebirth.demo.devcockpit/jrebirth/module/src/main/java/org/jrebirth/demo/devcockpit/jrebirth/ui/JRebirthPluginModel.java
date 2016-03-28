@@ -1,11 +1,11 @@
-package org.jrebirth.demo.devcockpit.ui;
+package org.jrebirth.demo.devcockpit.jrebirth.ui;
 
-import org.jrebirth.af.api.ui.annotation.CreateViewIntoJAT;
+import org.jrebirth.af.api.annotation.PriorityLevel;
+import org.jrebirth.af.api.module.Register;
+import org.jrebirth.af.api.ui.ModuleModel;
 import org.jrebirth.af.api.wave.Wave;
 import org.jrebirth.af.core.ui.DefaultModel;
 import org.jrebirth.demo.devcockpit.model.Hudson;
-import org.jrebirth.demo.devcockpit.service.LoadService;
-import org.jrebirth.demo.devcockpit.service.LoadServiceImpl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,11 +15,11 @@ import org.slf4j.LoggerFactory;
  * 
  * @author
  */
-@CreateViewIntoJAT
-public final class JenkinsModel extends DefaultModel<JenkinsModel, JenkinsView> {
+@Register(value = ModuleModel.class, priority = PriorityLevel.High)
+public final class JRebirthPluginModel extends DefaultModel<JRebirthPluginModel, JRebirthPluginView> implements ModuleModel {
 
     /** The class logger. */
-    private static final Logger LOGGER = LoggerFactory.getLogger(JenkinsModel.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JRebirthPluginModel.class);
 
     private Hudson hudson;
 
@@ -30,14 +30,6 @@ public final class JenkinsModel extends DefaultModel<JenkinsModel, JenkinsView> 
     protected void initModel() {
         LOGGER.debug("Init Sample Model");
         // Put the code to initialize your model here
-
-        listen(LoadService.RE_MAIN_LOADED);
-
-        getService(LoadServiceImpl.class);
-        // getService(LoadServiceImpl.class);
-        returnData(LoadServiceImpl.class, LoadService.DO_LOAD_MAIN);
-
-        // hudson = getService(LoadServiceImpl.class).loadMain(null);
 
     }
 

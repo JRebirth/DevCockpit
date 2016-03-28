@@ -1,4 +1,4 @@
-package org.jrebirth.demo.devcockpit.service;
+package org.jrebirth.demo.devcockpit.jrebirth.service;
 
 import java.io.IOException;
 import java.io.StringReader;
